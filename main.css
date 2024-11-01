@@ -8,7 +8,7 @@ body {
 header {
     background-color: #002B5C;
     color: #fff;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     min-height: 180px;
 }
 
@@ -69,13 +69,138 @@ header {
     width: 20px;
 }
 
-section {
+/* New sidebar styles */
+.main-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+/* Modified navigation styles to merge with header */
+.sidebar {
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+    margin: 20px auto 0;
+    max-width: 1200px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li {
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 12px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin-bottom: -1px;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.sidebar-nav a.active {
     background-color: #fff;
-    margin: 20px;
+    color: #002B5C;
+}
+
+/* Modified main content styles */
+.main-content {
+    background-color: #fff;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border-left: 4px solid #0066CC;
+}
+
+/* Section display rules */
+section {
+    display: none;
+}
+
+section:target {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Only show About section when no hash in URL */
+section#about {
+    display: block;
+}
+
+section:target ~ section#about {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section Content Styles */
+.education-item, .experience-item, .project-item, .publication-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.education-item:last-child, .experience-item:last-child, 
+.project-item:last-child, .publication-item:last-child {
+    border-bottom: none;
+}
+
+.education-item h3, .experience-item h3, 
+.project-item h3, .publication-item h3 {
+    color: #002B5C;
+    margin-bottom: 5px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.skill-category h3 {
+    color: #002B5C;
+    margin-bottom: 10px;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+/* Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
 footer {
